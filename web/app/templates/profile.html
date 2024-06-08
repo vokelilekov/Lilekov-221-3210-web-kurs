@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-6">
+        <h1 class="mt-4">Личный аккаунт</h1>
+        <p class="lead">Добро пожаловать, {{ current_user.first_name }}!</p>
+    </div>
+    <div class="col-md-6 mt-5 d-flex flex-column flex-md-row justify-content-md-end">
+        <a href="{{ url_for('main.update_profile') }}" class="btn my-3 me-md-2">Изменить профиль</a>
+        <a href="{{ url_for('main.change_password') }}" class="btn my-3">Сменить пароль</a>
+    </div>
+</div>
+<div class="card my-4 justify-content-center">
+    <div class="card-body">
+        <div class="text-center">
+            <h4 class="card-title">Ваши достижения</h4>
+            <p class="card-text">Количество изученных карточек: <span class="fw-bold fs-5">{{ learned_cards_count
+                    }}</span></p>
+        </div>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 my-4">
+            {% for user_card in learned_cards %}
+            <div class="col mb-4">
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="p-card-front card-body">
+                            <h2 class="card-title fw-bold">{{ user_card.card.word }}</h2>
+                            <button class="btn mt-2 flip-button">Перевернуть</button>
+                        </div>
+                        <div class="p-card-back card-body">
+                            <div class="text-container">
+                                <h5 class="card-title fw-bold">{{ user_card.card.translate }}</h5>
+                            </div>
+                            <div class="row">
+                                <div class="border-div text-container">
+                                    <p class="card-text">{{ user_card.card.line }}</p>
+                                </div>
+                                <div class="border-div text-container">
+                                    <p class="card-text">{{ user_card.card.translate_line }}</p>
+                                </div>
+                            </div>
+                            <button class="btn mt-2 flip-button">Вернуться</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</div>
+{% endblock %}

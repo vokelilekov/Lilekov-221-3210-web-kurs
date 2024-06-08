@@ -1,0 +1,291 @@
+.body {
+    color: rgb(96, 85, 74);
+    background: rgb(238, 236, 233);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    color: rgb(96, 85, 74);
+    background: rgb(238, 236, 233);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+header {
+    background: rgb(238, 236, 233);
+    color: rgb(96, 85, 74);
+    border-bottom: 4px solid rgb(96, 85, 74);
+    margin-bottom: 20px;
+}
+
+footer {
+    background: rgb(238, 236, 233);
+    color: rgb(96, 85, 74);
+    border-top: 4px solid rgb(96, 85, 74);
+    padding: 10px 0;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+span,
+div,
+li,
+ul,
+ol,
+label,
+input,
+button {
+    color: rgb(96, 85, 74);
+}
+
+.card .flip-button,
+.card .btn,
+.button .btn {
+    background-color: rgb(96, 85, 74);
+    color: rgb(238, 236, 233);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.card .flip-button:hover,
+.card .btn:hover {
+    background-color: rgb(48, 45, 41);
+}
+
+.navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.card {
+    perspective: 1000px;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(238, 236, 233);
+    position: relative;
+    overflow: hidden;
+}
+
+.card-inner {
+    width: 100%;
+    height: 400px;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.i-card-front,
+.i-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    border: 3px solid rgb(96, 85, 74);
+    border-radius: 8px;
+    padding: 20px;
+    background-color: rgb(48, 45, 41);
+    ;
+    overflow: hidden;
+}
+
+.p-card-front,
+.p-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 3px solid rgb(96, 85, 74);
+    border-radius: 8px;
+    padding: 20px;
+    background-color: rgb(48, 45, 41);
+    ;
+    overflow: hidden;
+}
+
+.i-card-back,
+.p-card-back {
+    transform: rotateY(180deg);
+}
+
+.card-inner.flip {
+    transform: rotateY(180deg);
+}
+
+.border-div {
+    border: 2px solid rgb(96, 85, 74);
+    border-radius: 4px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+    font-size: calc(1.5em + 0.5vw);
+    padding: 2px;
+    margin: 2px;
+    width: 60%;
+    height: auto;
+}
+
+.border-div p {
+    margin: 0;
+    padding: 2px;
+    word-wrap: break-word;
+    color: rgb(238, 236, 233);
+}
+
+.i-card-front h2,
+.i-card-back h4,
+.p-card-front h2,
+.p-card-back h4 {
+    font-size: calc(1.5em + 1vw);
+    text-align: center;
+}
+
+.text-container {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    height: 40%;
+}
+
+.text-container p {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    font-size: calc(0.25em + 0.5vw);
+    margin: 0;
+    text-align: center;
+    overflow: hidden;
+}
+
+.i-card-back .row {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 80%;
+}
+
+.p-card-back .row {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 80%;
+}
+
+#cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.card-container {
+    flex: 0 1 calc(33.333% - 1rem);
+    margin: 0.5rem;
+}
+
+
+/* СТИЛИ ДЛЯ ФОРМ */
+.form-label,
+.form-control {
+    background-color: rgb(238, 236, 233);
+    color: rgb(96, 85, 74);
+}
+
+input.form-control,
+select.form-control {
+    background-color: rgb(238, 236, 233);
+    border: 2px solid rgb(96, 85, 74);
+    color: rgb(96, 85, 74);
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+input.form-control::placeholder,
+select.form-control::placeholder {
+    color: rgb(128, 115, 100);
+}
+
+input.form-control:focus,
+select.form-control:focus {
+    background-color: rgb(238, 236, 233);
+    border-color: rgb(70, 62, 55);
+    outline: none;
+}
+
+button.btn,
+input[type="submit"].btn,
+a.btn {
+    background-color: rgb(96, 85, 74);
+    color: rgb(238, 236, 233);
+    border: 2px solid rgb(96, 85, 74);
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+button.btn:hover,
+input[type="submit"].btn:hover,
+a.btn:hover {
+    background-color: rgb(70, 62, 55);
+    border-color: rgb(70, 62, 55);
+}
+
+.pagination .page-item .page-link {
+    color: rgb(48, 45, 41);
+}
+
+.pagination-disabled-bg {
+    background-color: rgb(48, 45, 41);
+}
+
+.pagination .page-item.active .page-link {
+    background-color: rgb(96, 85, 74);
+    border-color: rgb(48, 45, 41);
+    color: rgb(238, 236, 233);
+}
+
+.pagination .page-item .page-link:hover {
+    color: rgb(238, 236, 233);
+    background-color: rgb(48, 45, 41);
+    border-color: rgb(238, 236, 233);
+}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Просмотр пользователя{% endblock %}
+{% block content %}
+<h1 class="mt-4">{{ user.first_name }} {{ user.last_name }}</h1>
+<div class="card">
+    <div class="card-body">
+        <p class="card-text"><strong>Имя:</strong> {{ user.first_name }}</p>
+        <p class="card-text"><strong>Фамилия:</strong> {{ user.last_name }}</p>
+        <p class="card-text"><strong>Отчество:</strong> {{ user.middle_name }}</p>
+        <p class="card-text"><strong>Номер телефона:</strong> {{ user.phone_number }}</p>
+        <p class="card-text"><strong>Почта:</strong> {{ user.email }}</p>
+        <p class="card-text"><strong>Роль:</strong> {{ user.role.role_name }}</p>
+    </div>
+</div>
+{% endblock %}

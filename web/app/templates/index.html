@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<h2 class="text-center mb-3 fw-b">Поиск карточек</h2>
+<form method="GET" action="{{ url_for('main.index') }}" class="my-1">
+    <div class="row g-2 ">
+        <div class="col-md-4 form-group">
+            <label for="{{ form.query.id }}" class="form-label">{{ form.query.label.text }}</label>
+            {{ form.query(class="form-control") }}
+        </div>
+        <div class="col-md-4 form-group">
+            <label for="{{ form.artist.id }}" class="form-label">{{ form.artist.label.text }}</label>
+            {{ form.artist(class="form-control") }}
+        </div>
+        <div class="col-md-4 form-group">
+            <label for="{{ form.album.id }}" class="form-label">{{ form.album.label.text }}</label>
+            {{ form.album(class="form-control") }}
+        </div>
+    </div>
+    <button type="submit" class="btn mt-2">Поиск</button>
+</form>
+
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 mt-4">
+    {% for card in cards %}
+    <div class="col mb-4">
+        <div class="card">
+            <div class="card-inner">
+                <div class="i-card-front card-body">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input learned-card-checkbox" id="known-{{ card.id }}"
+                            data-card-id="{{ card.id }}" {% if card.id in learned_cards %}checked{% endif %}>
+                        <label class="form-check-label" for="known-{{ card.id }}">Уже знаю это слово!</label>
+                    </div>
+                    <h2 class="card-title fw-bold">{{ card.word }}</h2>
+                    <button class="btn my-2 flip-button">Перевернуть</button>
+
+                </div>
+                <div class="i-card-back card-body">
+                    <h3 class="card-title text-center fw-bold">{{ card.translate }}</h3>
+                    <div class="row">
+                        <div class="border-div text-center text-container">
+                            <p class="card-text">{{ card.line }}</p>
+                        </div>
+                        <div class="border-div text-center text-container">
+                            <p class="card-text">{{ card.translate_line }}</p>
+                        </div>
+                    </div>
+                    <button class="btn flip-button">Вернуться</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+{% endblock %}

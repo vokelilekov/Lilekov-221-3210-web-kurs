@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Изменить карточку{% endblock %}
+{% block content %}
+<h1 class="mt-4">Изменить карточку</h1>
+<form method="POST" class="mb-4">
+    {{ form.hidden_tag() }}
+    <div class="mb-3">
+        {{ form.word.label(class="form-label") }}
+        {{ form.word(class="form-control", size=20) }}
+    </div>
+    <div class="mb-3">
+        {{ form.translate.label(class="form-label") }}
+        {{ form.translate(class="form-control", size=20) }}
+    </div>
+    <div class="mb-3">
+        {{ form.line.label(class="form-label") }}
+        {{ form.line(class="form-control", rows=3) }}
+    </div>
+    <div class="mb-3">
+        {{ form.translate_line.label(class="form-label") }}
+        {{ form.translate_line(class="form-control", rows=3) }}
+    </div>
+    <div class="mb-3">
+        {{ form.album_id.label(class="form-label") }}
+        {{ form.album_id(class="form-control") }}
+    </div>
+    {{ form.submit(class="btn btn-primary") }}
+</form>
+{% endblock %}

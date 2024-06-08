@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Update Profile{% endblock %}
+{% block content %}
+<h1 class="mt-4 text-center">Обновление данных аккаунта</h1>
+<div class="mt-2 text-center">
+    <img src="{{ url_for('media', filename=current_user.avatar) }}" alt="avatar"
+         class="img-thumbnail mb-3" width="250">
+</div>
+<form method="POST" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+    <div class="mb-3 fw-bold">
+        {{ form.first_name.label(class="form-label") }}
+        {{ form.first_name(class="form-control") }}
+    </div>
+    <div class="mb-3 fw-bold">
+        {{ form.last_name.label(class="form-label") }}
+        {{ form.last_name(class="form-control") }}
+    </div>
+    <div class="mb-3 fw-bold">
+        {{ form.middle_name.label(class="form-label") }}
+        {{ form.middle_name(class="form-control") }}
+    </div>
+    <div class="mb-3 fw-bold">
+        {{ form.phone_number.label(class="form-label") }}
+        {{ form.phone_number(class="form-control") }}
+    </div>
+    <div class="mb-3 fw-bold">
+        {{ form.email.label(class="form-label") }}
+        {{ form.email(class="form-control") }}
+    </div>
+    <div class="mb-3 fw-bold">
+        {{ form.avatar.label(class="form-label") }}
+        {{ form.avatar(class="form-control") }}
+        {% if current_user.avatar %}
+        {% endif %}
+    </div>
+    <button type="submit" name="submit" class="btn mb-4">Обновить профиль</button>
+</form>
+{% endblock %}

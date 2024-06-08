@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Изменить пользователя{% endblock %}
+{% block content %}
+<h1 class="mt-4">Изменить пользователя</h1>
+<form method="POST" class="mb-4">
+    {{ form.hidden_tag() }}
+    <div class="mb-3">
+        {{ form.first_name.label(class="form-label") }}
+        {{ form.first_name(class="form-control", size=20) }}
+    </div>
+    <div class="mb-3">
+        {{ form.last_name.label(class="form-label") }}
+        {{ form.last_name(class="form-control", size=20) }}
+    </div>
+    <div class="mb-3">
+        {{ form.middle_name.label(class="form-label") }}
+        {{ form.middle_name(class="form-control", size=20) }}
+    </div>
+    <div class="mb-3">
+        {{ form.phone_number.label(class="form-label") }}
+        {{ form.phone_number(class="form-control", size=20) }}
+    </div>
+    <div class="mb-3">
+        {{ form.email.label(class="form-label") }}
+        {{ form.email(class="form-control", size=20) }}
+    </div>
+    <div class="mb-3">
+        {{ form.role_id.label(class="form-label") }}
+        {{ form.role_id(class="form-control") }}
+    </div>
+    {{ form.submit(class="btn btn-primary") }}
+</form>
+{% endblock %}

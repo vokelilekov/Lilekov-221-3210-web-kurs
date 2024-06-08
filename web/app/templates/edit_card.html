@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Edit Card{% endblock %}
+{% block content %}
+<h1 class="mt-4">Edit Card</h1>
+<form method="POST" class="mt-4">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        {{ form.word.label }} {{ form.word(class="form-control") }}
+    </div>
+    <div class="form-group">
+        {{ form.translate.label }} {{ form.translate(class="form-control") }}
+    </div>
+    <div class="form-group">
+        {{ form.line.label }} {{ form.line(class="form-control") }}
+    </div>
+    <div class="form-group">
+        {{ form.translate_line.label }} {{ form.translate_line(class="form-control") }}
+    </div>
+    <div class="form-group">
+        {{ form.album_id.label }} {{ form.album_id(class="form-control") }}
+    </div>
+    <button type="submit" class="btn btn-primary">Save changes</button>
+</form>
+{% endblock %}
