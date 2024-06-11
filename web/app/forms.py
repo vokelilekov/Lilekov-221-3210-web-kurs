@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, BooleanField, IntegerField, SelectField, FileField, TextAreaField
-from wtforms.validators import DataRequired, Length, Email, EqualTo, Optional
-from app.models import Card, Album, Role
+from wtforms.validators import DataRequired, Length, Email, EqualTo, Optional, ValidationError
+from app.models import Card, Album, Role, User
 from flask_wtf.file import FileAllowed
 from .validators import password_validator
 
@@ -15,6 +15,11 @@ class RegistrationForm(FlaskForm):
     confirm_password = PasswordField('Подтверждение пароля', validators=[DataRequired(), EqualTo('password', message='Пароли должны совпадать.')])
     avatar = FileField('Аватар')
     submit = SubmitField('Зарегистрироваться')
+
+    def validate_email(self, email):
+        user = User.query.filter_by(email=email.data).first()
+        if user is not None:
+            raise ValidationError('Этот email уже используется. Пожалуйста, выберите другой.')
 
 class LoginForm(FlaskForm):
     email = StringField('Почта', validators=[DataRequired(), Email()])

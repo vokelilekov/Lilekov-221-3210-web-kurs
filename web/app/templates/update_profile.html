@@ -1,10 +1,13 @@
 {% extends "base.html" %}
-{% block title %}Update Profile{% endblock %}
+{% block title %}Изменение данных{% endblock %}
 {% block content %}
 <h1 class="mt-4 text-center">Обновление данных аккаунта</h1>
 <div class="mt-2 text-center">
-    <img src="{{ url_for('media', filename=current_user.avatar) }}" alt="avatar"
-         class="img-thumbnail mb-3" width="250">
+    {% if current_user.avatar %}
+    <img src="{{ url_for('media', filename=current_user.avatar) }}" alt="avatar" class="img-thumbnail mb-3" width="250">
+    {% else %}
+    <p>No avatar available.</p>
+    {% endif %}
 </div>
 <form method="POST" enctype="multipart/form-data">
     {{ form.hidden_tag() }}
