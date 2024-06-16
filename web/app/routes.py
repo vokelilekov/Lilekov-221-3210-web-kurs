@@ -230,7 +230,7 @@ def admin_edit_user(user_id):
         return redirect(url_for('main.index'))
 
     user = User.query.get_or_404(user_id)
-    form = UserForm(obj=user)  # передаем объект user в форму
+    form = UserForm(obj=user)
 
     if form.validate_on_submit():
         user.first_name = form.first_name.data
